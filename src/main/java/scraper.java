@@ -1,4 +1,3 @@
-import jdk.nashorn.internal.runtime.regexp.joni.Option;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -6,10 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +20,8 @@ public class scraper {
     public static void main(String[] args) throws InterruptedException {
 
         Wait<WebDriver> wait;
-        System.setProperty("webdriver.gecko.driver", "C:/Users/Aloy/Desktop/geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "C:/Users/Aloy/Desktop/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "/home/aloy/Documents/Programming/geckodriver");
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile myprofile = profile.getProfile("Dev");
 
