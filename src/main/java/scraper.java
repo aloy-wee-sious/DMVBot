@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * Created by aloy on 2/13/17.
@@ -27,9 +29,8 @@ public class scraper {
 
         driver = new FirefoxDriver();
         //driver = new FirefoxDriver();
-        wait = new WebDriverWait(driver, 500);
-        Thread.sleep(3000);
         driver.get("https://www.dmv.ca.gov/wasapp/foa/clear.do?goTo=officeVisit&localeName=en");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement e = (driver.findElement(By.name("officeId")));
 
         Select officeId = new Select(e);
@@ -45,8 +46,8 @@ public class scraper {
         driver.findElement(By.name("telSuffix")).sendKeys("3821");
         driver.findElement(By.xpath("//*[@id=\"app_content\"]/form/table/tbody/tr/td[1]/input[2]")).click();
 
-        Thread.sleep(3000);
-
+        //Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement w = driver.findElement(By.xpath("//*[@id=\"app_content\"]/table[1]/tbody/tr[2]"));
         System.out.println(w.getText());
 
