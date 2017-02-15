@@ -1,5 +1,3 @@
-import com.google.common.util.concurrent.Runnables;
-import org.glassfish.grizzly.utils.Exceptions;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
@@ -107,8 +105,7 @@ public class DMVBot extends TelegramLongPollingBot{
                 while (!thread.isInterrupted()) {
                     //System.out.println(" thread started");
                     scrape(chatId, DMVId);
-                    /* Thread.sleep(60000); */
-                    Thread.sleep(60000);
+                    Thread.sleep(600000);
                 }
             } catch (InterruptedException i) {
                 System.out.println("thread ended");

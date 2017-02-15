@@ -6,7 +6,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
-import java.io.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -15,9 +14,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class Scraper {
     static WebDriver driver;
-    public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.print(scrape("C:/Users/Aloy/Desktop/geckodriver.exe", "599"));
-        }
+/*    public static void main(String[] args) throws IOException, InterruptedException {
+        System.out.print(scrape("/home/aloy/Documents/Programming/geckodriver", "599"));
+        }*/
 
 
     public static String scrape (String driverPath, String DMVId) throws InterruptedException {
@@ -28,7 +27,7 @@ public class Scraper {
         String result = new String();
         driver.get("https://www.dmv.ca.gov/wasapp/foa/clear.do?goTo=officeVisit&localeName=en");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
         WebElement element = (driver.findElement(By.name("officeId")));
         Select officeId = new Select(element);
@@ -44,7 +43,7 @@ public class Scraper {
         driver.findElement(By.name("telSuffix")).sendKeys("1111");
         driver.findElement(By.xpath("/*//*[@id=\"app_content\"]/form/table/tbody/tr/td[1]/input[2]")).click();
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //location
