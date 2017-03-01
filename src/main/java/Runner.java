@@ -12,7 +12,7 @@ public class Runner {
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
-            telegramBotsApi.registerBot(new DMVBot((args.length == 0 || args[0].isEmpty()) ? "C:/Users/Aloy/Desktop/geckodriver.exe" : args[0]));
+            telegramBotsApi.registerBot(new DMVBot((args.length == 0 || args[0].isEmpty()) ? "\\DMVBot.config" : args[0]));
         } catch (TelegramApiException e) {
             System.out.println(e);
         }
